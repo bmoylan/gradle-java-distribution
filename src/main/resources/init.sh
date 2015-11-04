@@ -24,6 +24,10 @@ ARGS="@args@"
 SERVICE_HOME=${SERVICE_HOME:-$(cd "$(dirname "$0")/../../" && pwd)}
 cd "$SERVICE_HOME"
 
+if [ -z "$JAVA_8_HOME" ]; then
+   JAVA_HOME=$JAVA_8_HOME
+fi
+
 is_process_active() {
    local PID=$1
    ps $PID > /dev/null;
